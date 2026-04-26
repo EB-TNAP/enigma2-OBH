@@ -342,13 +342,8 @@ eFilePushThreadRecorder::eFilePushThreadRecorder(unsigned char* buffer, size_t b
 	m_stop(1),
 	m_buffer_fill(0),
 	m_buffer_min_write(0),
-	m_messagepump(eApp, 0, "eFilePushThreadRecorder"),
-	m_protocol(0),
-	m_session_id(0),
-	m_stream_id(0),
-	m_packet_no(0)
+	m_messagepump(eApp, 0, "eFilePushThreadRecorder")
 {
-	m_protocol = m_stream_id = m_session_id = m_packet_no = 0;
 	CONNECT(m_messagepump.recv_msg, eFilePushThreadRecorder::recvEvent);
 
 	/* Read accumulation threshold: 32 KB fixed */
